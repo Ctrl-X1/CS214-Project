@@ -21,3 +21,11 @@ This project is developed using **C++** and includes a menu-driven system that a
 ## File Handling
 - The program reads data from files at startup.
 - Data is saved back to files before exiting.
+
+## Contributors
+- Ayman
+- AlBarrak773
+- Omar
+- Ali
+- Asim
+- Fares
