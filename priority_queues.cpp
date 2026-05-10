@@ -59,19 +59,27 @@ int priorityQueue::dequeue() {
     return item;
 }
 
-void priorityQueue::display() {
+void priorityQueue::display() 
+{
     if (head == NULL) {
-        cout << "Queue is empty" << endl;
+        cout << "Front -> NULL\n";
         return;
     }
+    
+    cout << "Front -> ";
     node *p = head;
+    
     while (p != NULL) {
-        cout << "(" << p->data << ", p=" << p->priority << ")";
-        if (p->link != NULL)
-            cout << " -> ";
+        cout << "[ D: " << p->data << " | P: " << p->priority << " ]";
+        
+        if (p->link != NULL) {
+            cout << " => "; 
+        }
+        
         p = p->link;
     }
-    cout << endl;
+    
+    cout << " -> NULL\n";
 }
 
 void priorityQueue::dump_to_file() {

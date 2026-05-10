@@ -30,10 +30,10 @@ int main()
     {
         CLEAR;
 
-        cout << "\n===== MAIN MENU =====\n";
-        cout << "1. Linked list." << endl;
-        cout << "2. Stack as a dynamic array." << endl;
-        cout << "3. Prioriry queue." << endl;
+        cout << "\n===== DATA STRUCTURES EMULATOR SYSTEM =====\n";
+        cout << "1. Linked List Emulator." << endl;
+        cout << "2. Stack Emulator." << endl;
+        cout << "3. Prioriry Queue Emulator." << endl;
         cout << "0. Exit." << endl;
         cout << "\nEnter your choice: ";
         cin >> choice;
@@ -70,7 +70,7 @@ void SAD_menu(stack_darray &stack)
     {
         CLEAR;
 
-        cout << "\n===== STACK MENU =====\n";
+        cout << "\n===== STACK EMULATOR =====\n";
 
         cout << "1. Push." << endl;
         cout << "2. Pop." << endl;
@@ -87,13 +87,18 @@ void SAD_menu(stack_darray &stack)
             cout << "Enter a number to push: ";
             cin >> data;
             stack.push(data);
+            cout << endl;
+            stack.print();
+            cout << endl;
             PAUSE;
             break;
         case 2:
             CLEAR;
             data = stack.pop();
             cout << "Poped value: " << data << endl;
-            ;
+            cout << endl;
+            stack.print();
+            cout << endl;
             PAUSE;
             break;
         case 3:
@@ -101,6 +106,7 @@ void SAD_menu(stack_darray &stack)
             cout << "Stack values: \n"
                  << endl;
             stack.print();
+            cout << endl;
             PAUSE;
             break;
         case 4:
@@ -113,6 +119,9 @@ void SAD_menu(stack_darray &stack)
             {
                 cout << "Stack is not empty." << endl;
             }
+            cout << endl;
+            stack.print();
+            cout << endl;
             PAUSE;
             break;
         case 0:
@@ -133,7 +142,7 @@ void LinkedList_menu(LinkedList &l)
     do
     {
         CLEAR;
-        cout << "\n===== LINKED LIST MENU =====\n";
+        cout << "\n===== LINKED LIST EMULATOR =====\n";
 
         cout << "1. Append\n";
         cout << "2. Add at Beginning\n";
@@ -152,24 +161,35 @@ void LinkedList_menu(LinkedList &l)
         case 1:
 
             CLEAR;
+            cout << ">> Action: APPEND OPERATION\n";
             cout << "Enter number: ";
             cin >> num;
 
             l.append(num);
+
+            cout << "\n[ Current Visual State ]\n";
+            l.display();
+            cout << endl;
             PAUSE;
             break;
 
         case 2:
             CLEAR;
+            cout << ">> Action: ADD AT BEGINNING\n";
             cout << "Enter number: ";
             cin >> num;
 
             l.addAtBeg(num);
+
+            cout << "\n[ Current Visual State ]\n";
+            l.display();
+            cout << endl;
             PAUSE;
             break;
 
         case 3:
             CLEAR;
+            cout << ">> Action: ADD AFTER POSITION\n";
             cout << "Enter location: ";
             cin >> loc;
 
@@ -177,39 +197,58 @@ void LinkedList_menu(LinkedList &l)
             cin >> num;
 
             l.addAfter(loc, num);
+            
+            cout << "\n[ Current Visual State ]\n";
+            l.display();
+            cout << endl;
             PAUSE;
             break;
 
         case 4:
             CLEAR;
+            cout << ">> Action: DELETE OPERATION\n";
             cout << "Enter number to delete: ";
             cin >> num;
 
             l.del(num);
 
+            cout << "\n[ Current Visual State ]\n";
+            l.display();
+            cout << endl;
             PAUSE;
             break;
         case 5:
 
             CLEAR;
+            cout << ">> Action: MANUAL DISPLAY\n\n";
             l.display();
+            cout << endl;
             PAUSE;
             break;
 
         case 6:
 
             CLEAR;
+            cout << ">> Action: COUNT NODES\n";
             cout << "Total Nodes = "
-                 << l.count() << endl;
+                 << l.count() << endl << endl;
+
+            cout << "[ Current Visual State ]\n";
+            l.display(); 
+            cout << endl;
             PAUSE;
             break;
 
         case 7:
 
             CLEAR;
+            cout << ">> Action: REVERSE LIST\n";
             l.reverse();
-
             cout << "List reversed successfully.\n";
+            
+            cout << "\n[ Current Visual State ]\n";
+            l.display();
+            cout << endl;
             PAUSE;
             break;
 
@@ -234,7 +273,7 @@ void pq_menu(priorityQueue &pq)
     {
         CLEAR;
 
-        cout << "\n===== PQUEUE MENU =====\n";
+        cout << "\n===== PQUEUE EMULATOR =====\n";
 
         cout << "1. Enqueue." << endl;
         cout << "2. Dequeue." << endl;
@@ -247,26 +286,37 @@ void pq_menu(priorityQueue &pq)
         {
         case 1:
             CLEAR;
+            cout << ">> Action: ENQUEUE OPERATION\n";
             cout << "Enter data: ";
             cin >> data;
             cout << "Enter priority: ";
             cin >> priority;
             pq.enqueue(data, priority);
-            cout << "Enqueued (" << data << ", p=" << priority << ")" << endl;
+
+            cout << "\n[ Current Visual State ]\n";
+            pq.display();
+            cout << endl;
             PAUSE;
             break;
         case 2:
             CLEAR;
+            cout << ">> Action: DEQUEUE OPERATION\n";
             data = pq.dequeue();
-            if (data != NULL)
-                cout << "Dequeued value: " << data << endl;
+
+            if (data != 0)
+            {
+                cout << ">> Result: Dequeued value: " << data << "\n\n";
+                cout << "[ Current Visual State ]\n";
+                pq.display();
+                cout << endl;
+            }
             PAUSE;
             break;
         case 3:
             CLEAR;
-            cout << "Queue values: \n"
-                 << endl;
+            cout << ">> Action: MANUAL DISPLAY\n\n";
             pq.display();
+            cout << endl;
             PAUSE;
             break;
         case 0:

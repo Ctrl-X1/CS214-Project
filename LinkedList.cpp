@@ -156,36 +156,32 @@ void LinkedList::del(int num)
     cout << "Element not found.\n";
 }
 
-
-
 void LinkedList::display()
 {
-    node* temp = p;
+    node *temp = p;
 
     if (temp == NULL)
     {
-        cout << "[]\n";
-
+        cout << "Head -> NULL\n";
         return;
     }
 
-    cout << "[";
+    cout << "Head -> ";
 
     while (temp != NULL)
     {
-        cout << temp->data;
+        cout << "[ " << temp->data << " | * ]";
 
         if (temp->link != NULL)
         {
-            cout << ", ";
+            cout << " -> ";
         }
 
         temp = temp->link;
     }
 
-    cout << "]\n";
+    cout << " -> NULL\n";
 }
-
 
 int LinkedList::count()
 {

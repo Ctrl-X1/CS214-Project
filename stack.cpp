@@ -67,6 +67,14 @@ void stack_darray::print()
     while(temp != -1)
     {
         cout << "[ " << arr[temp] << " ]";
+        if(temp == top)
+        {
+            cout << " <-- TOP";
+        }
+        else if(temp == 0)
+        {
+            cout << " <-- Base";
+        }
         cout << endl;
         temp--;
     }
